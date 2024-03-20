@@ -8,34 +8,33 @@ int main()
 
    int T;
    cin >> T;
-
    while (T--)
    {
       int n;
       cin >> n;
-      long long int arr[n];
+
+      int a[n];
       for (int i = 0; i < n; i++)
       {
-         cin >> arr[i];
+         cin >> a[i];
       }
 
       int count = 0;
-
-      for (int i = 0; i < n - 1; i++)
+      for (int i = 0; i < n; i++)
       {
-
-         if ((arr[i + 1] - arr[i] + 1) > 0)
+         if (a[i] != i + 1)
          {
-            count += arr[i + 1] - (arr[i] + 1);
+            count++;
          }
       }
 
-      if (arr[0] != 1)
+      if (count == n)
       {
-         if ((arr[0] - 1) > 0)
-         {
-            count += arr[0] - 1;
-         }
+         count = 0;
+      }
+      else if (count == 0)
+      {
+         count = 1;
       }
 
       cout << count << '\n';
