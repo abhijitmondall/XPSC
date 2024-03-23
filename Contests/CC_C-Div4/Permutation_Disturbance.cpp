@@ -22,19 +22,20 @@ int main()
       int count = 0;
       for (int i = 0; i < n; i++)
       {
-         if (a[i] != i + 1)
+         if (a[i] == i + 1 && a[i + 1] == i + 2)
          {
             count++;
+
+            swap(a[i], a[i + 1]);
          }
       }
 
-      if (count == n)
+      for (int i = 0; i < n; i++)
       {
-         count = 0;
-      }
-      else if (count == 0)
-      {
-         count = 1;
+         if (a[i] == i + 1)
+         {
+            count++;
+         }
       }
 
       cout << count << '\n';
