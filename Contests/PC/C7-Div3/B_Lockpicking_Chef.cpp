@@ -23,31 +23,22 @@ int main()
          {
             break;
          }
-         long long cnt = 0, r = l, cry = 0;
+         long long cnt = 0, r = l;
 
          for (int i = 0; i < m; i++)
          {
 
             int x = s1[r] - '0';
             int y = s2[i] - '0';
-            if (y == 0)
-            {
-               y = 1;
-               cry = 1;
-            }
-            if (y == 9)
-            {
-               y = 0;
-               cry = 1;
-            }
 
-            int z = abs(x - y);
+            int z = min(10 - abs(x - y), abs(x - y));
+
             cnt += z;
 
             r++;
          }
 
-         ans = min(ans, cnt + cry);
+         ans = min(ans, cnt);
          l++;
       }
 
